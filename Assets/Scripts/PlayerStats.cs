@@ -14,6 +14,8 @@ public class PlayerStats : MonoBehaviour
 
     public float healthBarYOffset = 2;
 
+   
+
 
 
     #region MonoBehavior API 
@@ -27,8 +29,11 @@ public class PlayerStats : MonoBehaviour
         if (currentHealth == 0f)
         {
             EnemyAI.isPlayerAlive = false;
+            DeathScreen.instance.deathScreen.SetActive(true);
+            
             Destroy(gameObject);
         }
+        
     }
 
     public void ChangeHealth(int amount)

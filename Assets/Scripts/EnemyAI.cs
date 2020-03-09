@@ -25,11 +25,14 @@ public class EnemyAI : MonoBehaviour
     
         if (isPlayerAlive)
         {
+            if (transform)
+          {
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             playerDistance = Vector3.Distance(player.position, transform.position);
             if (playerDistance < 3f)
             {
                 attack();
+            }
             }
         }
 

@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int damage;
+    public static PlayerAttack instance;
     // Start is called before the first frame update
     void Start()
     {

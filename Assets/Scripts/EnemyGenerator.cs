@@ -8,13 +8,25 @@ public class EnemyGenerator : MonoBehaviour
     public int xPos;
     public int zPos;
     public int enemyCount;
+    public static EnemyGenerator instance;
+    
+
+
+    public void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         StartCoroutine(EnemyDrop());
     }
     IEnumerator EnemyDrop()
     {
-        while (enemyCount < 10)
+        while (enemyCount < 14)
         {
             xPos = Random.Range(1, 50);
             zPos = Random.Range(1, 31);
@@ -22,6 +34,7 @@ public class EnemyGenerator : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             enemyCount +=  1;
         }
+        
     }
 
 }

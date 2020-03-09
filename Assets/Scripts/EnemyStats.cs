@@ -15,19 +15,35 @@ public class EnemyStats : MonoBehaviour
 
     public float healthBarYOffset = 2;
 
+   GameObject winScreen;
+
+
+
 
 
     #region MonoBehavior API 
 
-   
 
-    
+
+
     void Update()
     {
         PositionHealthBar();
         if (currentHealth == 0f)
         {
+            EnemyGenerator.instance.enemyCount -= 1;
             Destroy(gameObject);
+
+        }
+        if (EnemyGenerator.instance.enemyCount < 0)
+        {
+
+            //  winScreen = GameObject.Find("WinScreenCanvas").GetComponent<WinScreen>();
+
+            //winScreen.SetActive(true);
+                WinScreen.instance.winScreen.SetActive(true);
+            
+            
         }
     }
 
